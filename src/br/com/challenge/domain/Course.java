@@ -1,34 +1,15 @@
 package br.com.challenge.domain;
 
-public class Course {
+public class Course extends Content{
 
-    private String tittle;
-    private String description;
     private int workload;
 
     public Course() {
     }
 
-    public Course(String tittle, String description, int workload) {
-        this.tittle = tittle;
-        this.description = description;
-        this.workload = workload;
-    }
-
-    public String getTittle() {
-        return tittle;
-    }
-
-    public void setTittle(String tittle) {
-        this.tittle = tittle;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    @Override
+    public double processXp() {
+        return DEFAULT_XP * workload;
     }
 
     public int getWorkload() {
@@ -42,8 +23,8 @@ public class Course {
     @Override
     public String toString() {
         return "Curso{" +
-                "tittle='" + tittle + '\'' +
-                ", description='" + description + '\'' +
+                "tittle='" + getTittle() + '\'' +
+                ", description='" + getDescription() + '\'' +
                 ", workload=" + workload +
                 '}';
     }
